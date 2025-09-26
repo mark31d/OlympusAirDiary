@@ -22,7 +22,7 @@ const BG_IMG   = require('../assets/bg.webp');
 const LOGO_SM  = require('../assets/logo.webp');
 const LOGO_BIG = require('../assets/logo.webp');
 
-/* Palettes (purple → yellow, как на скрине) */
+/* Palettes (purple → yellow, as shown on screen) */
 const PANEL_GRADIENT = ['#4B1FAE', '#7B2CBF', '#F72585', '#FF8A4C', '#FFD84D'];
 const BTN_GRADIENT   = ['#3C1B7A', '#7B2CBF', '#E350A4', '#FF8A4C', '#FFD84D'];
 const OK_GRADIENT    = ['#145B47', '#20C997', '#2ECC71'];
@@ -150,7 +150,7 @@ export default function AboutScreen({ navigation }) {
             >
               <Image source={LOGO_BIG} style={{ width: width * 0.52, height: width * 0.52, borderRadius: 24 }} resizeMode="contain" />
             </Pressable>
-            <Text style={styles.logoHint}>Нажмите на логотип для возврата на главную</Text>
+            <Text style={styles.logoHint}>Tap the logo to return to home</Text>
           </View>
 
           {/* SINGLE container panel */}
@@ -173,14 +173,14 @@ export default function AboutScreen({ navigation }) {
                     if (picked) {
                       if (isPicked && correct) grad = OK_GRADIENT;
                       else if (isPicked && !correct) grad = BAD_GRADIENT;
-                      else if (correct) grad = ['#134E40', '#1FB985', '#2ECC71']; // показать правильный
+                      else if (correct) grad = ['#134E40', '#1FB985', '#2ECC71']; // show correct answer
                     }
 
                     return (
                       <View style={{ marginHorizontal: 16, marginVertical: 10 }}>
                         <Pressable disabled={!!picked} onPress={() => onPick(opt)} style={{ alignSelf: 'stretch' }}>
                            <LinearGradient colors={grad} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.option}>
-                             {/* Внутренний «отступ» реализован margin у текста */}
+                             {/* Inner padding implemented with text margin */}
                              <Text style={[styles.optionText, { marginVertical: 16, marginHorizontal: 18 }]}>
                                {opt.text}
                              </Text>
@@ -284,16 +284,16 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     alignSelf: 'center',
     marginTop: 14,
-    // лёгкое свечение
+    // subtle glow
     shadowColor: '#7B2CBF',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.35,
     shadowRadius: 14,
     elevation: 8,
-    overflow: 'hidden', // ничего не дублируется и не вылезает
+    overflow: 'hidden', // nothing duplicates or overflows
   },
   content: {
-    marginHorizontal: 12, // отступы — margin
+    marginHorizontal: 12, // margins
     marginVertical: 10,
     alignSelf: 'stretch',
   },
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
      borderRadius: 20,
      borderWidth: 2,
      borderColor: 'rgba(255,255,255,0.3)',
-     minHeight: 60, // увеличиваем минимальную высоту
+     minHeight: 60, // increase minimum height
    },
    optionText: { 
      fontSize: 18, 
